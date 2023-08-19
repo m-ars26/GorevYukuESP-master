@@ -196,7 +196,7 @@ void loop()
 
   sendDataToGroundStation();
   delay(100);
-    
+  //delay(10);
   if (SD.begin()){
 
     String timeStr = dataPackage.timeStamp;
