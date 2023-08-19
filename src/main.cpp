@@ -35,7 +35,7 @@ uint32_t start, stop, count;
 int kosul = 0, drogueDeployed = 0, mainDeployed = 0;
 int drogueHoldCounter = 15;
 int mainHoldCounter = 15;
-int batteryVoltageCycles = BATTERY_VOLTAGE_CYCLES;
+//int batteryVoltageCycles = BATTERY_VOLTAGE_CYCLES;
 
 // gönderilen data paketi
 struct
@@ -47,7 +47,7 @@ struct
   String gpsLatitude = "0";
   String gpsLongtitude = "0";
   String humidity = "0";
-  String batteryVoltage = "0";
+  //String batteryVoltage = "0";
 } dataPackage;
 
 /* kalman filtre tanımlamaları */
@@ -195,7 +195,7 @@ void loop()
   }
 
   sendDataToGroundStation();
-  //delay(10);
+  delay(100);
     
   if (SD.begin()){
 
@@ -228,7 +228,7 @@ void loop()
     appendFile(SD, "/data1.txt", "Longitude = ");
     appendFile(SD, "/data1.txt", lngStr.c_str());
     appendFile(SD, "/data1.txt", "\n");
-    //delay(10);
+    delay(100);
 
   }
     
@@ -332,8 +332,8 @@ void sendDataToGroundStation()
   Serial.print(dataPackage.gpsLongtitude);
   Serial.print(",");
   Serial.print(dataPackage.gpsAltitude);
-  Serial.print(",");
-  Serial.print(dataPackage.batteryVoltage);
+  //Serial.print(",");
+  //Serial.print(dataPackage.batteryVoltage);
   Serial.print("\n");
 }
 
